@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>光洋製鋲株式会社｜東大阪の老舗ねじメーカー</title>
+  <meta name="description" content="大阪・東大阪の老舗ねじメーカー、光洋製鋲株式会社。小ロット・短納期対応、特殊ねじ、ボルト、小ねじ、自動車パーツ等の製造に柔軟対応。" />
+  <style>
+    body.locked main,
+    body.locked header,
+    body.locked footer,
+    body.locked #koryuPopup {
+      display: none !important;
+    }
+    .password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.42), rgba(0,0,0,.18)),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.18), transparent 28%),
+        linear-gradient(135deg, #202020 0%, #515861 45%, #d8d6d0 100%);
+      color: #fff;
+    }
+    .password-gate::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, transparent 0 48%, rgba(255,255,255,.12) 49%, transparent 50%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 80px);
+      pointer-events: none;
+    }
+    .password-box {
+      position: relative;
+      z-index: 1;
+      width: min(460px, 100%);
+      background: rgba(255,255,255,.96);
+      color: #1a1a1a;
+      border-radius: 18px;
+      padding: 34px;
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: 0 30px 90px rgba(0,0,0,.36);
+      text-align: center;
+    }
+    .password-box img {
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto 18px;
+    }
+    .password-box h2 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: .08em;
+    }
+    .password-box p {
+      margin: 0 0 22px;
+      color: #666;
+      line-height: 1.7;
+    }
+    .password-box input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 18px;
+      text-align: center;
+      letter-spacing: .12em;
+    }
+    .password-box button {
+      margin-top: 16px;
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      background: #b91c1c;
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .password-error {
+      display: none;
+      margin-top: 12px;
+      color: #b91c1c;
+      font-weight: 900;
+    }
+    .password-error.show {
+      display: block;
+    }
+    :root {
+      --red: #b91c1c;
+      --dark: #171717;
+      --ink: #2a2a2a;
+      --muted: #666;
+      --line: #e5e0d8;
+      --paper: #f7f3ea;
+      --gold: #b89b5e;
+      --steel: #5f6770;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      cursor: url("cursor.png"), auto;
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    nav a { padding: 8px 0; border-bottom: 2px solid transparent; }
+    nav a:hover { color: var(--red); border-bottom-color: var(--red); }
+    .mail-btn {
+      background: var(--red);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    main { padding-top: 74px; }
+    section { scroll-margin-top: 94px; }
+    .hero {
+      min-height: 760px;
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.28), rgba(0,0,0,.08)),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.18), transparent 28%),
+        linear-gradient(135deg, #202020 0%, #515861 45%, #d8d6d0 100%);
+      color: #fff;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, transparent 0 48%, rgba(255,255,255,.12) 49%, transparent 50%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 80px);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      color: #f0d28a;
+      font-weight: 900;
+      letter-spacing: .16em;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 1.12;
+      letter-spacing: .08em;
+    }
+    .hero p { max-width: 650px; font-size: 18px; margin: 26px 0 34px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 4px;
+      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.45);
+    }
+    .btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+    .btn.light { color: #fff; background: rgba(255,255,255,.08); }
+    .hero-card {
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 28px 80px rgba(0,0,0,.35);
+    }
+    .logo-panel {
+      height: 420px;
+      border: 2px solid #d8d2c7;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: inset 0 0 0 8px #f5f1e8, 0 12px 30px rgba(0,0,0,.08);
+    }
+    .logo-panel::before {
+      display:none;
+    }
+    .dragon-mark {
+      margin-top: 44px;
+      width: 160px; height: 160px;
+      border: 5px solid #425a9c;
+      border-radius: 50%;
+      position: relative;
+      background: radial-gradient(circle at center, #e94b43 0 34%, transparent 35%);
+    }
+    .dragon-mark::after {
+      content: "龍";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #b89b5e;
+      font-size: 86px;
+      font-family: serif;
+      font-weight: 900;
+      transform: rotate(-18deg);
+    }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .stat { background: var(--paper); padding: 16px; border-left: 4px solid var(--red); }
+    .stat b { display: block; font-size: 22px; color: var(--red); }
+    .section { padding: 92px 0; }
+    .section.alt { background: var(--paper); }
+    .section-head { margin-bottom: 42px; }
+    .section-head .label { color: var(--red); font-weight: 900; letter-spacing: .18em; font-size: 13px; }
+    h2 { margin: 8px 0 0; font-size: clamp(30px, 4vw, 48px); letter-spacing: .08em; line-height: 1.35; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 760px; }
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 36px; align-items: center; }
+    .photo {
+      min-height: 330px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,.13);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .photo.building {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,0)),
+        linear-gradient(135deg, #dcd8cd 0 32%, #fafafa 33% 55%, #c9ced4 56% 100%);
+    }
+    .photo.building::before {
+      content: "光洋製鋲";
+      position: absolute;
+      right: 52px; top: 120px;
+      writing-mode: vertical-rl;
+      background: #fff;
+      padding: 10px 5px;
+      font-weight: 900;
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+    }
+    .photo.building::after {
+      content: "";
+      position: absolute;
+      left: 40px; bottom: 0;
+      width: 72%; height: 64%;
+      background:
+        linear-gradient(#fff 0 0) 0 0 / 100% 12px no-repeat,
+        linear-gradient(90deg, #fff 0 28%, #ddd 29% 32%, #fff 33% 100%);
+      border-top: 6px solid #333;
+      opacity: .9;
+    }
+    .message-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(247,243,234,.96), rgba(255,255,255,.88)),
+        repeating-linear-gradient(90deg, rgba(185,28,28,.06) 0 1px, transparent 1px 80px),
+        repeating-linear-gradient(0deg, rgba(0,0,0,.04) 0 1px, transparent 1px 80px);
+    }
+    .message-section::before {
+      content: "Koyo Seibyo";
+      position: absolute;
+      right: -40px;
+      bottom: 10px;
+      font-size: clamp(64px, 12vw, 170px);
+      font-weight: 900;
+      letter-spacing: .08em;
+      color: rgba(185,28,28,.055);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .message-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 48px;
+      align-items: stretch;
+    }
+    .president-photo-card {
+      background: #fff;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.16);
+      position: relative;
+    }
+    .president-photo-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(185,28,28,.24);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+    .president-photo {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 10px;
+      display: block;
+    }
+    .president-name-box {
+      margin-top: 18px;
+      padding: 18px 18px 14px;
+      background: linear-gradient(135deg, #1c1c1c, #454545);
+      color: #fff;
+      border-left: 6px solid var(--red);
+    }
+    .president-title {
+      font-size: 14px;
+      color: #e6d19a;
+      font-weight: 900;
+      letter-spacing: .16em;
+    }
+    .president-name {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      margin-top: 4px;
+    }
+    .message-card {
+      background: rgba(255,255,255,.95);
+      padding: 46px;
+      border-radius: 14px;
+      border-left: 8px solid var(--red);
+      box-shadow: 0 18px 50px rgba(0,0,0,.10);
+      font-size: 17px;
+      line-height: 2.05;
+    }
+    .message-quote {
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: #faf6ee;
+      border-left: 5px solid var(--gold);
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--dark);
+      letter-spacing: .08em;
+    }
+    @media (max-width: 920px) {
+      .message-layout { grid-template-columns: 1fr; }
+      .president-photo { height: 440px; }
+    }
+    .strengths { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .strength {
+      background: #fff;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--red);
+      min-height: 210px;
+    }
+    .strength .num { color: var(--gold); font-weight: 900; font-size: 13px; }
+    .strength h3 { margin: 8px 0 10px; font-size: 21px; line-height: 1.45; }
+    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .product {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .product-img {
+      height: 170px;
+      background:
+        radial-gradient(circle at 50% 52%, #c8c0b6 0 8%, transparent 9%),
+        linear-gradient(90deg, transparent 0 17%, #7d776f 18% 22%, #b7b0a8 23% 80%, transparent 81%),
+        repeating-linear-gradient(90deg, transparent 0 10px, rgba(0,0,0,.2) 10px 12px),
+        #f5f5f5;
+      position: relative;
+    }
+    .product-img.screw2 {
+      background:
+        linear-gradient(140deg, transparent 0 38%, #b5afa8 39% 76%, transparent 77%),
+        repeating-linear-gradient(140deg, transparent 0 8px, rgba(0,0,0,.2) 8px 10px),
+        #f8f8f8;
+    }
+    .product-img.bolt { background: linear-gradient(90deg, #656565 0 22%, #a9a9a9 23% 76%, #777 77% 100%); }
+    .product-img.parts { background: radial-gradient(circle at 50% 50%, #aeb4bb 0 26%, #737b84 27% 34%, transparent 35%), linear-gradient(135deg,#eee,#aaa); }
+    .product-body { padding: 20px; }
+    .product h3 { margin: 0 0 6px; font-size: 20px; }
+    .product p { margin: 0; color: var(--muted); font-size: 14px; }
+    .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+    .spec-card, .stock-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .spec-table {
+      margin-top: 16px;
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: #f8fbfd;
+    }
+    .spec-table th, .spec-table td { border: 1px solid #cdd8e2; padding: 8px; text-align: center; }
+    .spec-table th { background: #d9edf8; }
+    .stock-visual {
+      height: 250px;
+      margin-top: 18px;
+      border-radius: 6px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.56), rgba(0,0,0,.14)),
+        repeating-linear-gradient(0deg, #9a7248 0 44px, #c99b62 45px 78px, #6f4c2b 79px 82px),
+        linear-gradient(90deg, #333 0 18%, #555 19% 82%, #222 83% 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .process-card {
+      background: #fff;
+      padding: 22px;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .process-card b { color: var(--red); font-size: 24px; }
+    .dark-history {
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.72), rgba(0,0,0,.28), rgba(0,0,0,.08)),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.18), transparent 28%),
+        linear-gradient(135deg, #202020 0%, #515861 45%, #d8d6d0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .dark-history::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, transparent 0 48%, rgba(255,255,255,.12) 49%, transparent 50%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 80px);
+      pointer-events: none;
+    }
+    .dark-history .label {
+      color: #d6b16f;
+    }
+    .history-timeline {
+      position: relative;
+      margin-top: 50px;
+      padding: 20px 0;
+    }
+    .history-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, #b91c1c, #d6b16f, #333);
+      border-radius: 999px;
+    }
+    .history-item {
+      position: relative;
+      width: 50%;
+      padding: 10px 42px;
+      margin-bottom: 28px;
+    }
+    .history-item.left {
+      left: 0;
+      text-align: right;
+    }
+    .history-item.right {
+      left: 50%;
+    }
+    .history-item::before {
+      content: "";
+      position: absolute;
+      top: 34px;
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border: 5px solid #b91c1c;
+      border-radius: 50%;
+      z-index: 2;
+      box-shadow: 0 0 0 6px rgba(185,28,28,.12);
+    }
+    .history-item.left::before {
+      right: -13px;
+    }
+    .history-item.right::before {
+      left: -13px;
+    }
+    .history-year {
+      font-size: 58px;
+      font-weight: 900;
+      color: rgba(255,255,255,.22);
+      text-shadow: 0 4px 18px rgba(0,0,0,.45);
+      line-height: 1;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+    .history-card {
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(255,255,255,.12);
+      border-top: 5px solid #b91c1c;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.24);
+      position: relative;
+      backdrop-filter: blur(6px);
+    }
+    .history-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 5px solid #b91c1c;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+      position: relative;
+    }
+    .history-card h3 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #111;
+      letter-spacing: .04em;
+    }
+    .history-card p {
+      margin-bottom: 0;
+      color: #444;
+      line-height: 1.9;
+      font-weight: 500;
+    }
+    @media (max-width: 920px) {
+      .history-line {
+        left: 16px;
+      }
+      .history-item,
+      .history-item.left,
+      .history-item.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 52px;
+        padding-right: 0;
+      }
+      .history-item.left::before,
+      .history-item.right::before {
+        left: 7px;
+      }
+      .history-year {
+        font-size: 42px;
+      }
+    }
+    .company { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    table.company-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
+    .company-table th, .company-table td { padding: 15px 18px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .company-table th { width: 32%; background: #faf8f3; color: var(--dark); }
+    .map iframe { width: 100%; height: 420px; border: 0; filter: grayscale(20%); border-radius: 8px; }
+    .contact {
+      background: linear-gradient(135deg, #1a1a1a, #3b3b3b);
+      color: #fff;
+    }
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .contact-form {
+      background: #fff;
+      color: var(--ink);
+      padding: 30px;
+      border-radius: 8px;
+    }
+    label { display: block; font-weight: 900; margin-top: 12px; }
+    input, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font: inherit;
+    }
+    textarea { min-height: 130px; }
+    button {
+      margin-top: 18px;
+      width: 100%;
+      border: 0;
+      background: var(--red);
+      color: #fff;
+      padding: 15px;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .koryu-click {
+      transition: transform .25s ease, filter .25s ease;
+    }
+    .koryu-click:hover {
+      transform: scale(1.04) rotate(-2deg);
+      filter: drop-shadow(0 18px 24px rgba(185,28,28,.22));
+    }
+    .koryu-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,.72);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .koryu-popup.is-open {
+      display: flex;
+    }
+    .koryu-popup-box {
+      width: min(760px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      background:
+        radial-gradient(circle at top right, rgba(255,221,87,.35), transparent 32%),
+        linear-gradient(135deg, #ffffff, #fff7df);
+      border: clamp(3px, .8vw, 6px) solid #d6b16f;
+      border-radius: clamp(16px, 3vw, 28px);
+      padding: clamp(26px, 5vw, 44px) clamp(18px, 4vw, 34px);
+      text-align: center;
+      box-shadow: 0 30px 100px rgba(0,0,0,.45);
+      position: relative;
+      animation: koryuPop .25s ease-out;
+    }
+    .koryu-popup-box::before {
+      content: "こうりゅう君からのメッセージ";
+      display: inline-block;
+      background: #b91c1c;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      margin-bottom: 22px;
+    }
+    .koryu-popup-text {
+      font-size: clamp(24px, 4.8vw, 54px);
+      line-height: 1.45;
+      font-weight: 900;
+      color: #1a1a1a;
+      letter-spacing: .04em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    .koryu-popup-close {
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 30px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    @keyframes koryuPop {
+      from { transform: scale(.86); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    footer { background: #111; color: #bbb; padding: 28px 0; font-size: 13px; }
+    @media (max-width: 920px) {
+      .nav { height: auto; padding: 12px 0; flex-wrap: wrap; }
+      nav ul { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+      main { padding-top: 118px; }
+      .hero-grid, .about-grid, .tech-grid, .company, .contact-box { grid-template-columns: 1fr; }
+      .strengths, .products, .process { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .hero { min-height: 720px; }
+      .strengths, .products, .process, .stats { grid-template-columns: 1fr; }
+      .mail-btn { display: none; }
+      .koryu-popup { padding: 14px; }
+      .koryu-popup-box::before {
+        font-size: 12px;
+        letter-spacing: .06em;
+        padding: 8px 14px;
+        margin-bottom: 16px;
+      }
+      .koryu-popup-text {
+        font-size: clamp(22px, 8vw, 34px);
+        line-height: 1.55;
+        letter-spacing: .02em;
+      }
+      .koryu-popup-close {
+        width: 100%;
+        padding: 13px 18px;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <div id="passwordGate" class="password-gate">
+    <div class="password-box">
+      <img src="ロゴ.png" alt="光洋製鋲ロゴ">
+      <h2>閲覧パスワード</h2>
+      <p>このページを表示するには<br>パスワードを入力してください。</p>
+      <input id="sitePassword" type="password" placeholder="PASSWORD" autocomplete="off" onkeydown="if(event.key === 'Enter') unlockSite();">
+      <button type="button" onclick="unlockSite()">開く</button>
+      <div id="passwordError" class="password-error">パスワードが違います</div>
+    </div>
+  </div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><img src="ロゴ.png" alt="光洋製鋲ロゴ" style="height:46px;width:auto;object-fit:contain;"><span>光洋製鋲株式会社</span></a>
+      <nav aria-label="ページ内ナビゲーション">
+        <ul>
+          <li><a href="#about">会社紹介</a></li>
+          <li><a href="#message">代表挨拶</a></li>
+          <li><a href="#strength">強み</a></li>
+          <li><a href="#products">製品</a></li>
+          <li><a href="#tech">技術資料</a></li>
+          <li><a href="#history">歴史</a></li>
+          <li><a href="#character">キャラクター</a></li>
+          <li><a href="#company">会社概要</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <a class="mail-btn" href="mailto:aihara.hiroki@torq.co.jp" target="_blank" rel="noopener">メール相談</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">HIGASHIOSAKA SCREW MANUFACTURER</div>
+          <h1>特殊ねじを、<br>確実に。</h1>
+          <p>創業100年近い技術と信頼。大阪・東大阪の老舗ねじメーカーとして、小ロット・短納期・特殊仕様に柔軟対応します。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#products">製品を見る</a>
+            <a class="btn light" href="#contact">問い合わせる</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="logo-panel"><img src="ロゴ.png" alt="光洋製鋲ロゴ" style="width:100%;height:100%;object-fit:contain;padding:10px;background:#ffffff;"></div>
+          <div class="stats">
+            <div class="stat"><b>1925</b>創業</div>
+            <div class="stat"><b>東大阪</b>ものづくり</div>
+            <div class="stat"><b>小ロット</b>短納期対応</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap about-grid">
+        <div class="photo"><img src="社屋外観.png" alt="光洋製鋲株式会社 社屋外観" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div>
+          <div class="section-head">
+            <div class="label">ABOUT</div>
+            <h2>東大阪の技術で支える、老舗ねじメーカー</h2>
+          </div>
+          <p class="lead">光洋製鋲株式会社は、大阪府東大阪市に拠点を置く、ボルト・小ねじ・特殊ねじ・自動車パーツ等の製造会社です。</p>
+          <p>長年培ったねじ製造技術と現場対応力を活かし、規格品から特殊仕様まで柔軟に対応。試作・小ロット・急ぎ案件など、現場で必要とされるものづくりを支えています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt message-section" id="message">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">MESSAGE</div>
+          <h2>代表挨拶</h2>
+          <p class="lead">一本一本に責任を持ち、品質と信頼を積み重ねる。光洋製鋲のものづくりへの想い。</p>
+        </div>
+        <div class="message-layout">
+          <div class="president-photo-card">
+            <img src="社長.png" alt="代表取締役 岡本 光弘" class="president-photo">
+            <div class="president-name-box">
+              <div class="president-title">代表取締役</div>
+              <div class="president-name">岡本 光弘</div>
+              <div style="margin-top:10px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.82);border-top:1px solid rgba(255,255,255,.12);padding-top:12px;">
+                東大阪のものづくりを支える老舗ねじメーカーとして、現場力と技術力を大切にしながら、特殊ねじ・小ロット対応に取り組む。
+              </div>
+            </div>
+          </div>
+          <div class="message-card">
+            <p>はじめまして。<br>
+            光洋製鋲株式会社 代表の岡本 光弘です。</p>
+
+            <p>私たちは東大阪の町工場として、ねじ・スペーサー・締結部品の製造を通じ、日本のものづくりを支えてまいりました。</p>
+
+            <p>ねじは小さな部品ですが、製品の安全性や品質を支える重要な存在です。<br>
+            だからこそ私たちは、一本一本に責任を持ち、品質と信頼を積み重ねています。</p>
+
+            <p class="message-quote">「まずは相談してみよう」</p>
+
+            <p>そう思っていただける存在でありたい。<br>
+            図面一枚からでも、難しい案件でも、現場力と対応力で最適なご提案を行います。</p>
+
+            <p>東大阪から世界へ。<br>
+            私たちはこれからも、技術と挑戦を続け、日本の製造業に貢献してまいります。</p>
+
+            <p>今後とも、光洋製鋲株式会社をよろしくお願いいたします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="strength" class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">STRENGTH</div>
+          <h2>光洋製鋲の強み</h2>
+          <p class="lead">老舗でありながら、小回りの利く対応力。現場に寄り添うものづくりが特徴です。</p>
+        </div>
+        <div class="strengths">
+          <article class="strength"><div class="num">01</div><h3>小ロット・短納期対応</h3><p>試作や急ぎ案件にも相談しやすく、柔軟に対応します。</p></article>
+          <article class="strength"><div class="num">02</div><h3>特殊仕様への対応力</h3><p>特殊ねじ・別注品など、規格外の相談にも対応します。</p></article>
+          <article class="strength"><div class="num">03</div><h3>リピート品の在庫対応</h3><p>継続品の在庫管理により、安定供給と短納期を支えます。</p></article>
+          <article class="strength"><div class="num">04</div><h3>創業100年近い技術</h3><p>長年培った製造技術と信頼で、幅広いニーズに応えます。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">PRODUCTS</div>
+          <h2>主力製品</h2>
+          <p class="lead">ボルト・小ねじ・特殊ねじ・自動車向けパーツなど、現場で必要とされる各種製品を製造しています。</p>
+        </div>
+        <div class="products">
+          <article class="product"><div class="product-img"><img src="溶接小ねじ.png" alt="溶接小ねじ" style="width:100%;height:100%;object-fit:contain;background:#f5f5f5;padding:12px;"></div><div class="product-body"><h3>溶接小ねじ</h3><p>各種溶接用途に対応する小ねじ。</p></div></article>
+          <article class="product"><div class="product-img"><img src="マイナス皿小ねじ.png" alt="マイナス皿ビス" style="width:100%;height:100%;object-fit:contain;background:#f5f5f5;padding:12px;"></div><div class="product-body"><h3>マイナス皿ビス</h3><p>規格表・寸法資料にも対応。</p></div></article>
+          <article class="product"><div class="product-img"><img src="六角ボルト.png" alt="六角ボルト" style="width:100%;height:100%;object-fit:contain;background:#f5f5f5;padding:12px;"></div><div class="product-body"><h3>六角ボルト</h3><p>細目六角ボルトなど各種対応。</p></div></article>
+          <article class="product"><div class="product-img"><img src="自動車向けパーツ.png" alt="自動車向けパーツ" style="width:100%;height:100%;object-fit:contain;background:#f5f5f5;padding:12px;"></div><div class="product-body"><h3>自動車向けパーツ</h3><p>用途に合わせた特殊部品製造。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">TECHNICAL DATA</div>
+          <h2>規格・技術資料</h2>
+          <p class="lead">図面・規格表を確認しながら、製品仕様のご相談が可能です。</p>
+        </div>
+        <div class="tech-grid">
+          <div class="spec-card"><h3>マイナス皿ビス 規格表</h3><p>サイズ・頭部寸法・溝寸法など、仕様確認用の技術資料を掲載しています。</p><img src="皿ビス規格表.png" alt="皿ビス規格表" style="width:100%;border:1px solid #d9d9d9;border-radius:6px;margin-top:18px;"></div>
+          <div class="stock-card">
+            <h3>在庫対応・安定供給</h3>
+            <p>リピート品の在庫管理により、急ぎ案件や短納期のご相談にも対応します。</p>
+            <div style="display:flex;flex-direction:column;gap:16px;margin-top:18px;">
+              <div class="stock-visual" style="background:none;height:auto;padding:0;">
+                <img src="在庫.png" alt="在庫管理風景" style="width:100%;border-radius:6px;display:block;">
+              </div>
+              <div class="stock-visual" style="background:none;height:auto;padding:0;">
+                <img src="在庫2.png" alt="在庫管理風景2" style="width:100%;border-radius:6px;display:block;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-history section" id="history">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">HISTORY</div>
+          <h2 style="color:#fff;">光洋製鋲の歩み</h2>
+          <p class="lead" style="color:rgba(255,255,255,.78);">東大阪のものづくりと共に歩み続けた、創業100年近い歴史。</p>
+        </div>
+
+        <div class="history-timeline">
+          <div class="history-line"></div>
+
+          <div class="history-item left">
+            <div class="history-year">1925</div>
+            <div class="history-card">
+              <h3>創業</h3>
+              <p>大阪の町工場として創業。製鋲・ねじ製造を中心に事業を開始。</p>
+            </div>
+          </div>
+
+          <div class="history-item right">
+            <div class="history-year">1941</div>
+            <div class="history-card">
+              <h3>会社設立</h3>
+              <p>光洋製鋲株式会社を設立。工業製品向け締結部品の製造体制を強化。</p>
+            </div>
+          </div>
+
+          <div class="history-item left">
+            <div class="history-year">1968</div>
+            <div class="history-card">
+              <h3>量産設備導入</h3>
+              <p>量産加工設備を導入し、自動車関連部品の対応を拡大。</p>
+            </div>
+          </div>
+
+          <div class="history-item right">
+            <div class="history-year">1985</div>
+            <div class="history-card">
+              <h3>特殊ねじ分野へ展開</h3>
+              <p>小ロット・特殊仕様案件への対応を本格化。現場対応型メーカーとして信頼を獲得。</p>
+            </div>
+          </div>
+
+          <div class="history-item left">
+            <div class="history-year">2005</div>
+            <div class="history-card">
+              <h3>在庫管理体制強化</h3>
+              <p>リピート製品の在庫管理体制を強化し、短納期対応を実現。</p>
+            </div>
+          </div>
+
+          <div class="history-item right">
+            <div class="history-year">2025</div>
+            <div class="history-card">
+              <h3>創業100周年へ</h3>
+              <p>東大阪から世界へ。老舗メーカーとして、技術と挑戦を次世代へ繋いでいく。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="character" style="background:linear-gradient(135deg,#f7f3ea,#ffffff);position:relative;overflow:hidden;">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">CHARACTER</div>
+          <h2>光洋製鋲 公式キャラクター</h2>
+          <p class="lead">地球龍印から生まれた、ものづくり大好きドラゴン。</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:420px 1fr;gap:48px;align-items:center;position:relative;z-index:1;">
+          <div style="background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.12);border:1px solid #e5dfd4;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(185,28,28,.08);"></div>
+            <div style="position:absolute;left:-10px;top:18px;background:#ffdd57;color:#1a1a1a;padding:12px 18px;border-radius:999px;font-weight:900;font-size:15px;transform:rotate(-12deg);box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:3;border:3px solid #fff;">
+              グッズもでるかも！？
+            </div>
+            <img src="こうりゅう君.png" alt="公式キャラクター" class="koryu-click" onclick="openKoryuPopup()" style="width:100%;display:block;position:relative;z-index:1;cursor:pointer;">
+          </div>
+
+          <div>
+            <div style="display:inline-block;background:#b91c1c;color:#fff;padding:8px 18px;border-radius:999px;font-weight:900;letter-spacing:.12em;font-size:13px;">KOYO SEIBYO CHARACTER</div>
+            <h3 style="font-size:56px;margin:18px 0 10px;line-height:1.1;letter-spacing:.08em;color:#1a1a1a;">
+              こうりゅう君
+            </h3>
+            <div style="font-size:22px;color:#b91c1c;font-weight:900;margin-bottom:22px;">
+              地球龍印がキャラクターになりました！
+            </div>
+
+            <div style="background:#fff;border-left:6px solid #d6b16f;padding:30px;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.08);line-height:2;font-size:17px;">
+              <p>東大阪のものづくりを支える、光洋製鋲株式会社の公式キャラクター。</p>
+
+              <p>ねじやボルトが大好きで、いつも現場を走り回っている頑張り屋のドラゴンです。</p>
+
+              <p>困っている人を見ると放っておけず、
+              「まずは相談してみよう！」が口ぐせ。</p>
+
+              <p>特殊ねじや小ロット案件でも、現場力とスピード対応でみんなをサポートします。</p>
+
+              <p>東大阪から世界へ。
+              今日もこうりゅう君は、日本のものづくりを支えています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">FLOW</div>
+          <h2>ご相談の流れ</h2>
+        </div>
+        <div class="process">
+          <div class="process-card"><img src="お問い合わせ.png" alt="お問い合わせ" style="width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:14px;"><b>01</b><h3>お問い合わせ</h3><p>図面・仕様・数量・納期をご相談ください。</p></div>
+          <div class="process-card"><img src="仕様確認.png" alt="仕様確認" style="width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:14px;"><b>02</b><h3>仕様確認</h3><p>材質・サイズ・加工内容を確認します。</p></div>
+          <div class="process-card"><img src="製造・在庫確認.png" alt="製造・在庫確認" style="width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:14px;"><b>03</b><h3>製造・在庫確認</h3><p>製造可否や在庫対応を確認します。</p></div>
+          <div class="process-card"><img src="納品.png" alt="納品" style="width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:14px;"><b>04</b><h3>納品</h3><p>短納期案件にも柔軟に対応します。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="company" class="section alt">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="label">COMPANY</div>
+          <h2>会社概要・アクセス</h2>
+        </div>
+        <div class="company">
+          <table class="company-table">
+            <tr><th>会社名</th><td>光洋製鋲株式会社</td></tr>
+            <tr><th>所在地</th><td>大阪府東大阪市高井田西5丁目1番44号</td></tr>
+            <tr><th>創業</th><td>1925年9月</td></tr>
+            <tr><th>設立</th><td>1941年9月</td></tr>
+            <tr><th>代表者</th><td>岡本 光弘</td></tr>
+            <tr><th>資本金</th><td>1,000万円</td></tr>
+            <tr><th>従業員数</th><td>6〜11名</td></tr>
+            <tr><th>事業内容</th><td>ボルト・小ねじ・特殊ねじ・自動車パーツ等の製造</td></tr>
+          </table>
+          <div class="map">
+            <iframe title="光洋製鋲株式会社 Google Map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%9D%B1%E5%A4%A7%E9%98%AA%E5%B8%82%E9%AB%98%E4%BA%95%E7%94%B0%E8%A5%BF5%E4%B8%81%E7%9B%AE1%E7%95%AA44%E5%8F%B7&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap contact-box">
+        <div>
+          <div class="section-head">
+            <div class="label">CONTACT</div>
+            <h2>特殊ねじ・小ロット製作のご相談はこちら</h2>
+          </div>
+          <p>図面・仕様・数量・納期が分かる場合は、メール本文に記載してお問い合わせください。</p>
+          <p><strong>送信先：</strong>aihara.hiroki@torq.co.jp</p>
+        </div>
+        <form class="contact-form" action="mailto:aihara.hiroki@torq.co.jp" method="post" enctype="text/plain" target="_blank">
+          <label for="company-name">会社名</label>
+          <input id="company-name" name="会社名" type="text" placeholder="株式会社〇〇" />
+          <label for="name">お名前</label>
+          <input id="name" name="お名前" type="text" placeholder="山田 太郎" />
+          <label for="email">メールアドレス</label>
+          <input id="email" name="メールアドレス" type="email" placeholder="example@example.com" />
+          <label for="message">お問い合わせ内容</label>
+          <textarea id="message" name="お問い合わせ内容" placeholder="製品名、数量、材質、納期、図面有無などをご記入ください。"></textarea>
+          <button type="submit">メールソフトを開く</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="koryuPopup" class="koryu-popup" onclick="closeKoryuPopup()">
+    <div class="koryu-popup-box" onclick="event.stopPropagation()">
+      <div class="koryu-popup-text">夢を一回だけ叶えてあげるよ！<br>パソコンの前で大声で叫んでみよう。</div>
+      <div class="koryu-popup-close" onclick="closeKoryuPopup()">閉じる</div>
+    </div>
+  </div>
+
+  <script>
+    const SITE_PASSWORD = 'KOYO';
+
+    function unlockSite() {
+      const input = document.getElementById('sitePassword');
+      const error = document.getElementById('passwordError');
+      if (input.value === SITE_PASSWORD) {
+        sessionStorage.setItem('koyoSiteUnlocked', 'true');
+        document.body.classList.remove('locked');
+        document.getElementById('passwordGate').style.display = 'none';
+      } else {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      if (sessionStorage.getItem('koyoSiteUnlocked') === 'true') {
+        document.body.classList.remove('locked');
+        document.getElementById('passwordGate').style.display = 'none';
+      } else {
+        document.getElementById('sitePassword').focus();
+      }
+    });
+
+    function openKoryuPopup() {
+      document.getElementById('koryuPopup').classList.add('is-open');
+    }
+    function closeKoryuPopup() {
+      document.getElementById('koryuPopup').classList.remove('is-open');
+    }
+  </script>
+
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:20px;font-weight:900;color:#fff;margin-bottom:8px;">光洋製鋲株式会社</div>
+        <div>© 光洋製鋲株式会社. All Rights Reserved.</div>
+      </div>
+
+      <a href="#character" style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.08);">
+        <img src="こうりゅう君.png" alt="こうりゅう君" style="width:74px;height:74px;object-fit:contain;">
+        <div>
+          <div style="font-size:12px;color:#d6b16f;font-weight:900;letter-spacing:.12em;">OFFICIAL CHARACTER</div>
+          <div style="font-size:24px;font-weight:900;color:#fff;">こうりゅう君</div>
+        </div>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
