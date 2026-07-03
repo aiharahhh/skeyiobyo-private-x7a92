@@ -746,17 +746,7 @@
     }
   </style>
 </head>
-<body class="locked">
-  <div id="passwordGate" class="password-gate">
-    <div class="password-box">
-      <img src="ロゴ.png" alt="光洋製鋲ロゴ">
-      <h2>閲覧パスワード</h2>
-      <p>このページを表示するには<br>パスワードを入力してください。</p>
-      <input id="sitePassword" type="password" placeholder="PASSWORD" autocomplete="off" onkeydown="if(event.key === 'Enter') unlockSite();">
-      <button type="button" onclick="unlockSite()">開く</button>
-      <div id="passwordError" class="password-error">パスワードが違います</div>
-    </div>
-  </div>
+<body>
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top"><img src="ロゴ.png" alt="光洋製鋲ロゴ" style="height:46px;width:auto;object-fit:contain;"><span>光洋製鋲株式会社</span></a>
@@ -1090,31 +1080,6 @@
   </div>
 
   <script>
-    const SITE_PASSWORD = 'KOYO';
-
-    function unlockSite() {
-      const input = document.getElementById('sitePassword');
-      const error = document.getElementById('passwordError');
-      if (input.value === SITE_PASSWORD) {
-        sessionStorage.setItem('koyoSiteUnlocked', 'true');
-        document.body.classList.remove('locked');
-        document.getElementById('passwordGate').style.display = 'none';
-      } else {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', function () {
-      if (sessionStorage.getItem('koyoSiteUnlocked') === 'true') {
-        document.body.classList.remove('locked');
-        document.getElementById('passwordGate').style.display = 'none';
-      } else {
-        document.getElementById('sitePassword').focus();
-      }
-    });
-
     function openKoryuPopup() {
       document.getElementById('koryuPopup').classList.add('is-open');
     }
